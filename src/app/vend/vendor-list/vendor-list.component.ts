@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SystemService } from 'src/app/misc/system.service';
+import { Vendor } from '../vendor.class';
+import { VendorService } from '../vendor.service';
 
 @Component({
   selector: 'app-vendor-list',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendorListComponent implements OnInit {
 
-  constructor() { }
+  vendors: Vendor[] = [];
+  searchCriteria: string = '';
+  
+  constructor(
+    private sys: SystemService,
+    private usr: VendorService
+  ) { }
 
   ngOnInit(): void {
+    this.sys.chkLogin();
+    this.usr.list().subscribe(
+      res => { console.debug(res); this.vendors = res; },
+      err => { console.error(err); }
+    );
   }
 
 }

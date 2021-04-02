@@ -1,1 +1,40 @@
-<p>vendor-list works!</p>
+<app-menu></app-menu>
+<div>
+    <div class="component-title">
+        <span class="page-title">Vendor List</span> |
+        <span><a routerLink="/vend/create">Create</a></span> |
+        <span><input [(ngModel)]="searchCriteria" type="text" class="search-box" placeholder="Search"></span>
+    </div>
+    <table class="table table-striped">
+        <thead>
+
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Phone Number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let vendor of vendors | searchVendors:searchCriteria">
+                <td>{{vendor.id}}</td>
+                <td>{{vendor.code}}</td>
+                <td>{{vendor.name}}</td>
+                <td>{{vendor.address}}</td>
+                <td>{{vendor.city}}</td>
+                <td>{{vendor.state}}</td>
+                <td>{{vendor.zip}}</td>
+                <td>{{vendor.phoneNumber}}</td>
+                <td>
+                    <span><a routerLink="/vend/detail/{{vendor.id}}">Detail</a></span> |
+                    <span><a routerLink="/vend/edit/{{vendor.id}}">Edit</a></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

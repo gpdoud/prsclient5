@@ -9,3 +9,6 @@ input, select {
 .page-title {
     font-weight: bold;
 }
+.search-box {
+    border: 0;
+}

@@ -1,1 +1,47 @@
-<p>vendor-create works!</p>
+<app-menu></app-menu>
+<div>
+    <div class="component-title">
+        <span class="page-title">Vendor Create</span>
+    </div>
+    <table class="table table-sm" *ngIf="vendor">
+        <tr>
+            <th>Id</th>
+            <td><input [(ngModel)]="vendor.id" type="number" disabled></td>
+        </tr>
+        <tr>
+            <th>Code</th>
+            <td><input [(ngModel)]="vendor.code" type="text" ></td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td><input [(ngModel)]="vendor.name" type="text" ></td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td><input [(ngModel)]="vendor.address" type="text" ></td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td><input [(ngModel)]="vendor.city" type="text" ></td>
+        </tr>
+        <tr>
+            <th>State</th>
+            <td><input [(ngModel)]="vendor.state" type="text" size="7" ></td>
+        </tr>
+        <tr>
+            <th>Zip</th>
+            <td><input [(ngModel)]="vendor.zip" type="text" size="10" ></td>
+        </tr>
+        <tr>
+            <th>Phone Number</th>
+            <td><input [(ngModel)]="vendor.phoneNumber" type="text" size="15" ></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input [(ngModel)]="vendor.email" type="text" size="50" ></td>
+        </tr>
+    </table>
+    <div>
+        <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
+    </div>
+</div>

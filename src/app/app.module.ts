@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import * as comp from '.';
 import { BoolDisplayPipe } from './misc/bool-display.pipe';
 import { SearchUserPipe } from './misc/search-user.pipe';
+import { SearchVendorPipe } from './misc/search-vendor.pipe';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SearchUserPipe } from './misc/search-user.pipe';
     comp.MenuComponent,comp.MenuitemComponent,
     comp.E404Component,
     BoolDisplayPipe,
-    SearchUserPipe
+    SearchUserPipe,
+    SearchVendorPipe
   ],
   imports: [
     BrowserModule,FormsModule,HttpClientModule,
