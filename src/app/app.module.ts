@@ -10,6 +10,7 @@ import * as comp from '.';
 import { BoolDisplayPipe } from './misc/bool-display.pipe';
 import { SearchUserPipe } from './misc/search-user.pipe';
 import { SearchVendorPipe } from './misc/search-vendor.pipe';
+import { SearchProductPipe } from './misc/search-product.pipe';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { SearchVendorPipe } from './misc/search-vendor.pipe';
     comp.E404Component,
     BoolDisplayPipe,
     SearchUserPipe,
-    SearchVendorPipe
+    SearchVendorPipe,
+    SearchProductPipe
   ],
   imports: [
     BrowserModule,FormsModule,HttpClientModule,

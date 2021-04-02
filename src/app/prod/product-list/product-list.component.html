@@ -1,1 +1,36 @@
-<p>product-list works!</p>
+<app-menu></app-menu>
+<div>
+    <div class="component-title">
+        <span class="page-title">Product List</span> |
+        <span><a routerLink="/prod/create">Create</a></span> |
+        <span><input [(ngModel)]="searchCriteria" type="text" class="search-box" placeholder="Search"></span>
+    </div>
+    <table class="table table-striped">
+        <thead>
+
+            <tr>
+                <th>Id</th>
+                <th>Vendor</th>
+                <th>Part Number</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Unit</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products | searchProducts:searchCriteria">
+                <td>{{product.id}}</td>
+                <td>{{product.vendorName}}</td>
+                <td>{{product.partNbr}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.price | currency}}</td>
+                <td>{{product.unit}}</td>
+                <td>
+                    <span><a routerLink="/prod/detail/{{product.id}}">Detail</a></span> |
+                    <span><a routerLink="/prod/edit/{{product.id}}">Edit</a></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
