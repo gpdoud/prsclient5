@@ -11,6 +11,7 @@ import { BoolDisplayPipe } from './misc/bool-display.pipe';
 import { SearchUserPipe } from './misc/search-user.pipe';
 import { SearchVendorPipe } from './misc/search-vendor.pipe';
 import { SearchProductPipe } from './misc/search-product.pipe';
+import { SearchRequestPipe } from './misc/search-request.pipe';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { SearchProductPipe } from './misc/search-product.pipe';
     BoolDisplayPipe,
     SearchUserPipe,
     SearchVendorPipe,
-    SearchProductPipe
+    SearchProductPipe,
+    SearchRequestPipe
   ],
   imports: [
     BrowserModule,FormsModule,HttpClientModule,

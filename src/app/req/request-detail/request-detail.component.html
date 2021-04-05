@@ -1,1 +1,47 @@
-<p>request-detail works!</p>
+<app-menu></app-menu>
+<div>
+    <div class="component-title">
+        <span class="page-title">Request Edit</span>
+    </div>
+    <table class="table table-sm" *ngIf="request">
+        <tr>
+            <th>Id</th>
+            <td><input [(ngModel)]="request.id" type="number" disabled></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><input [(ngModel)]="request.description" type="text" size="40" disabled></td>
+        </tr>
+        <tr>
+            <th>Justification</th>
+            <td><input [(ngModel)]="request.justification" type="text" size="40" disabled></td>
+        </tr>
+        <tr *ngIf="request.rejectionReason">
+            <th>Rejection Reason</th>
+            <td><input [(ngModel)]="request.rejectionReason" type="text" size="40" disabled class="text-danger font-weight-bold"></td>
+        </tr>
+        <tr>
+            <th>Delivery Mode</th>
+            <td><input [(ngModel)]="request.deliveryMode" type="text" disabled></td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td><input [(ngModel)]="request.status" type="text" size="15" disabled></td>
+        </tr>
+        <tr>
+            <th>Total</th>
+            <td><input [ngModel]="request.total | currency" onModelChange="request.total = $event" type="text" disabled></td>
+        </tr>
+        <tr>
+            <th>User</th>
+            <td><input [(ngModel)]="request.user.username" type="text" disabled ></td>
+        </tr>
+    </table>
+    <div>
+        <button (click)="edit()" class="btn btn-warning btn-sm">Edit</button> |
+        <button (click)="verify()" class="btn btn-danger btn-sm">Delete</button>
+        <span *ngIf="verifyDelete">
+            | <button (click)="delete()" class="btn btn-danger btn-sm">Verify Delete</button>         
+        </span>
+        
+    </div></div>

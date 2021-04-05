@@ -32,6 +32,7 @@ export class ProductCreateComponent implements OnInit {
     }
     
   ngOnInit(): void {
+    this.sys.chkLogin();
     this.vnd.list().subscribe(
       res => { console.debug(res); this.vendors = res; },
       err => { console.error(err); }

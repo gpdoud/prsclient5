@@ -1,1 +1,26 @@
-<p>user-login works!</p>
+<div>
+    <form id="login">
+
+        <table class="table table-sm">
+            <tr>
+                <td colspan="2" class="h3 text-center">PRS Login</td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td><input [(ngModel)]="user.username" type="text" name="username" autocomplete="username"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input [(ngModel)]="user.password" type="password" name="password" autocomplete="current-password"></td>
+            </tr>
+        </table>
+        <div id="btnmsg">
+
+            <button (click)="login()" class="btn btn-primary">Login</button><br><br>
+            <div colspan="2" class="text-danger fw-bold">{{message}}</div>
+        </div>
+    </form>
+</div>
