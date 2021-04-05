@@ -24,7 +24,11 @@ export class UserLoginComponent implements OnInit {
     this.message = '';
     console.debug("B4:", this.user);
     this.usr.login(this.user.username, this.user.password).subscribe(
-      res => { console.debug("User:", res); this.router.navigateByUrl("/req/list"); },
+      res => { 
+        console.debug("User:", res); 
+        this.sys.loggedInUser = res;
+        this.router.navigateByUrl("/req/list"); 
+      },
       err => { 
         console.debug(err); 
         if(err.status == 404) {

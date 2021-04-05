@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'req/detail/:id', component: comp.RequestDetailComponent },
   { path: 'req/create', component: comp.RequestCreateComponent },
   { path: 'req/edit/:id', component: comp.RequestEditComponent },
-  { path: 'req/review', component: comp.RequestReviewListComponent },
+  { path: 'req/lines/:id', component: comp.RequestLinesComponent },
+  { path: 'req/review/list', component: comp.RequestReviewListComponent },
   { path: 'req/review/:id', component: comp.RequestReviewItemComponent },
 
   { path: 'reql/create/:rid', component: comp.RequestlineCreateComponent },

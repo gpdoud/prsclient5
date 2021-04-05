@@ -34,6 +34,10 @@
                 <select [(ngModel)]="product.vendorId">
                     <option *ngFor="let vendor of vendors" value={{vendor.id}}>{{vendor.name}}</option>
                 </select>
+                <!-- Java -->
+                <!-- <select [(ngModel)]="product.vendor">
+                    <option *ngFor="let vendor of vendors" [ngValue]={{vendor}}>{{vendor.name}}</option>
+                </select> -->
             </td>
         </tr>
     </table>

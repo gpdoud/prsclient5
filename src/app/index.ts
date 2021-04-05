@@ -7,6 +7,7 @@ export { RequestListComponent } from './req/request-list/request-list.component'
 export { RequestDetailComponent } from './req/request-detail/request-detail.component';
 export { RequestEditComponent } from './req/request-edit/request-edit.component';
 export { RequestCreateComponent } from './req/request-create/request-create.component';
+export { RequestLinesComponent } from './req/request-lines/request-lines.component';
 export { RequestReviewListComponent } from './req/request-review-list/request-review-list.component';
 export { RequestReviewItemComponent } from './req/request-review-item/request-review-item.component';
 

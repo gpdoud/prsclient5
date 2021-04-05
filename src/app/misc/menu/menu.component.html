@@ -1,5 +1,11 @@
 <nav>
-    <ul>
-        <app-menuitem [menu]="menu" *ngFor="let menu of menus"></app-menuitem>
-    </ul>
+    <div id="left">
+        <ul>
+            <app-menuitem [menu]="menu" *ngFor="let menu of menus"></app-menuitem>
+        </ul>
+    </div>
+    <div id="right">
+        <span *ngIf="user">{{user.username}}</span>
+        <span *ngIf="!user">Login</span>
+    </div>
 </nav>

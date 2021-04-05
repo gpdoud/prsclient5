@@ -18,16 +18,12 @@ export class ProductListComponent implements OnInit {
     private usr: ProductService
   ) { }
 
-  injectVendorName(products: Product[]) {
-    for(let p of products) {
-      p.vendorName = p.vendor.name;
-    }
-  }
+
 
   ngOnInit(): void {
     this.sys.chkLogin();
     this.usr.list().subscribe(
-      res => { console.debug(res); this.injectVendorName(res); this.products = res; },
+      res => { console.debug(res); this.products = res; },
       err => { console.error(err); }
     );
   }

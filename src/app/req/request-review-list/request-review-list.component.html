@@ -1,1 +1,35 @@
-<p>request-review-list works!</p>
+<app-menu></app-menu>
+<div>
+    <div class="component-title">
+        <span class="page-title">Request In Review</span>
+        <!-- <span><a routerLink="/req/create">Create</a></span> |
+        <span><input [(ngModel)]="searchCriteria" type="text" class="search-box" placeholder="Search"></span> -->
+    </div>
+    <table class="table table-striped">
+        <thead>
+
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>RejectionReason</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>User</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let request of requests | searchRequests:searchCriteria">
+                <td>{{request.id}}</td>
+                <td>{{request.description}}</td>
+                <td>{{request.rejectionReason}} {{request.lastname}}</td>
+                <td>{{request.status}}</td>
+                <td>{{request.total | currency}}</td>
+                <td>{{request.user.username}}</td>
+                <td>
+                    <span><a routerLink="/req/review/{{request.id}}">Review</a></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
