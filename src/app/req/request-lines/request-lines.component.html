@@ -1,1 +1,52 @@
-<p>request-lines works!</p>
+<app-menu></app-menu>
+<div>
+    <div class="component-title">
+        <span class="page-title">Request Lines</span>
+    </div>
+    <table class="table table-sm" *ngIf="request">
+        <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>User</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>{{request.id}}</td>
+            <td>{{request.description}}</td>
+            <td>{{request.status}}</td>
+            <td>{{request.total | currency}}</td>
+            <td>{{request.user.username}}</td>
+            <td>
+                <button (click)="review()" type="button" class="btn btn-link">Review</button>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <div>
+        <span>Requestlines</span> |
+        <button (click)="create(request.id)" class="btn btn-link">Create</button>
+    </div>
+    <table class="table table-sm table-dividers" *ngIf="request">
+        <tr>
+            <th>Id</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Line Total</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let line of request.requestlines">
+            <td>{{line.id}}</td>
+            <td>{{line.product.description}}</td>
+            <td>{{line.quantity}}</td>
+            <td>{{line.product.price | currency}}</td>
+            <td>{{line.product.price * line.quantity | currency}}</td>
+            <td>
+                <button (click)="edit(line.id)" class="btn btn-link">Edit</button> |
+                <button (click)="delete(line)" class="btn btn-link text-danger">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>

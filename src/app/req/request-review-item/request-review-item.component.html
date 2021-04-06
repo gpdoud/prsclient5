@@ -1,1 +1,55 @@
-<p>request-review-item works!</p>
+<app-menu></app-menu>
+<div>
+    <div class="component-title">
+        <span class="page-title">Request Review</span>
+    </div>
+    <table class="table table-sm" *ngIf="request">
+        <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th *ngIf="request.rejectionReason">Rejection Reason</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>User</th>
+        </tr>
+        <tr>
+            <td>{{request.id}}</td>
+            <td>{{request.description}}</td>
+            <td *ngIf="request.rejectionReason" class="text-danger fw-bold">{{request.rejectionReason}}</td>
+            <td>{{request.status}}</td>
+            <td>{{request.total | currency}}</td>
+            <td>{{request.user.username}}</td>
+        </tr>
+    </table>
+    <hr>
+    <div>
+        <span>Requestlines</span>
+    </div>
+    <table class="table table-sm table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Line Total</th>
+        </tr>
+        <tr *ngFor="let line of request.requestlines">
+            <td>{{line.id}}</td>
+            <td>{{line.product.description}}</td>
+            <td>{{line.quantity}}</td>
+            <td>{{line.product.price | currency}}</td>
+            <td>{{line.product.price * line.quantity | currency}}</td>
+        </tr>
+    </table>
+    <hr>
+    <div>
+        <button (click)="approve()" type="button" class="btn btn-link text-success">Approve</button> |
+        <button (click)="verify()" type="button" class="btn btn-link text-danger">Reject</button>
+        <span *ngIf="verifyReject">
+            <span> | | [ </span>
+            <input [(ngModel)]="request.rejectionReason" type="text" size="50" placeholder="Rejection Reason">
+            <span> ] | | </span>
+            <button (click)="reject()" type="button" class="btn btn-link text-danger">Verify Reject</button>
+        </span>
+    </div>
+</div>

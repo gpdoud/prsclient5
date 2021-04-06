@@ -1,7 +1,9 @@
 <nav>
     <div id="left">
         <ul>
-            <app-menuitem [menu]="menu" *ngFor="let menu of menus"></app-menuitem>
+            <app-menuitem [menu]="menu" 
+                *ngFor="let menu of menus | reviewerFilter:isReviewer">
+            </app-menuitem>
         </ul>
     </div>
     <div id="right">

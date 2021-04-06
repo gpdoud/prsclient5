@@ -12,6 +12,7 @@ import { SearchUserPipe } from './misc/search-user.pipe';
 import { SearchVendorPipe } from './misc/search-vendor.pipe';
 import { SearchProductPipe } from './misc/search-product.pipe';
 import { SearchRequestPipe } from './misc/search-request.pipe';
+import { ReviewerFilterPipe } from './misc/reviewer-filter.pipe';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { SearchRequestPipe } from './misc/search-request.pipe';
     comp.UserCreateComponent,comp.UserLoginComponent,
     comp.VendorListComponent, comp.VendorDetailComponent, comp.VendorCreateComponent, comp.VendorEditComponent, 
     comp.RequestListComponent, comp.RequestDetailComponent, comp.RequestEditComponent, comp.RequestCreateComponent, 
-    comp.RequestReviewListComponent, comp.RequestReviewItemComponent, 
+    comp.RequestLinesComponent, comp.RequestReviewListComponent, comp.RequestReviewItemComponent, 
     comp.RequestlineCreateComponent, comp.RequestlineEditComponent,
     comp.MenuComponent,comp.MenuitemComponent,
     comp.E404Component,
@@ -30,7 +31,8 @@ import { SearchRequestPipe } from './misc/search-request.pipe';
     SearchUserPipe,
     SearchVendorPipe,
     SearchProductPipe,
-    SearchRequestPipe
+    SearchRequestPipe,
+    ReviewerFilterPipe
   ],
   imports: [
     BrowserModule,FormsModule,HttpClientModule,

@@ -11,6 +11,7 @@ import { SystemService } from '../system.service';
 export class MenuComponent implements OnInit {
 
   user: User = new User();
+  get isReviewer() { return this.user.isReviewer; }
 
   menus: Menu[] = [
     new Menu("Home", "/home"),

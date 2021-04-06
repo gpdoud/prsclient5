@@ -1,3 +1,4 @@
+import { Requestline } from "../reql/requestline.class";
 import { User } from "../user/user.class";
 
 export class Request {
@@ -8,6 +9,7 @@ export class Request {
     deliveryMode: string = 'Pickup';
     status: string = 'NEW';
     total: number = 0;
+    requestlines: Requestline[] = null;
     userId: number = 0;
     user: User = null;
     

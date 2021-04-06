@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'src/app/misc/system.service';
+import { Product } from 'src/app/prod/product.class';
+import { ProductService } from 'src/app/prod/product.service';
+import { Requestline } from '../requestline.class';
+import { RequestlineService } from '../requestline.service';
 
 @Component({
   selector: 'app-requestline-create',
@@ -7,9 +13,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestlineCreateComponent implements OnInit {
 
-  constructor() { }
+  requestline: Requestline = new Requestline();
+  products: Product[] = [];
+
+  constructor(
+    private sys: SystemService,
+    private reql: RequestlineService,
+    private prd: ProductService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
+
+  save(): void {
+    this.requestline.productId = +this.requestline.productId;
+    this.reql.create(this.requestline).subscribe(
+      res => { console.debug(res); this.router.navigateByUrl(`/req/lines/${this.requestline.requestId}`) },
+      err => { console.error(err); }      
+    );
+  }
 
   ngOnInit(): void {
+    this.prd.list().subscribe(
+      res => { console.debug(res); this.products = res; },
+      err => { console.error(err); }
+    );
+    this.requestline.requestId = +this.route.snapshot.params.rid;
   }
 
 }

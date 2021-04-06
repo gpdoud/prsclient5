@@ -15,8 +15,8 @@ export class SystemService {
 
   chkLogin(): void {
     if(this.loggedInUser == null) {
-      // this.router.navigateByUrl('/login');
-      console.warn("Check for login disabled!");
+      this.router.navigateByUrl('/login');
+      // console.warn("Check for login disabled!");
     }
   }
 }
