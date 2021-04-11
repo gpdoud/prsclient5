@@ -12,6 +12,7 @@ export class VendorListComponent implements OnInit {
 
   vendors: Vendor[] = [];
   searchCriteria: string = '';
+  get isAdmin(){ return this.sys.isAdmin };
   
   constructor(
     private sys: SystemService,

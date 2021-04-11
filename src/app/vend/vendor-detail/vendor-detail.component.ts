@@ -13,6 +13,7 @@ export class VendorDetailComponent implements OnInit {
 
   vendor: Vendor = null;
   verifyDelete: boolean = false;
+  get isAdmin() { return this.sys.isAdmin; }
   
   constructor(
     private sys: SystemService,

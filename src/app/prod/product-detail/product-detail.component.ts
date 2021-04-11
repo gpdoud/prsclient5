@@ -13,6 +13,7 @@ export class ProductDetailComponent implements OnInit {
 
   product: Product = null;
   verifyDelete: boolean = false;
+  get isAdmin(){ return this.sys.isAdmin };
 
   constructor(
     private sys: SystemService,

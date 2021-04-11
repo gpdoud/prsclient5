@@ -13,6 +13,7 @@ export class UserDetailComponent implements OnInit {
 
   user: User = null;
   verifyDelete: boolean = false;
+  get isAdmin(){ return this.sys.isAdmin };
 
   constructor(
     private sys: SystemService,

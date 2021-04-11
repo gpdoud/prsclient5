@@ -33,7 +33,7 @@
             <td><input [(ngModel)]="product.photoPath" type="text" disabled></td>
         </tr>
     </table>
-    <div>
+    <div *ngIf="isAdmin">
         <button (click)="edit()" class="btn btn-warning btn-sm">Edit</button> |
         <button (click)="verify()" class="btn btn-danger btn-sm">Delete</button>
         <span *ngIf="verifyDelete">

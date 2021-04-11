@@ -12,6 +12,7 @@ export class UserListComponent implements OnInit {
 
   users: User[] = [];
   searchCriteria: string = '';
+  get isAdmin(){ return this.sys.isAdmin };
   
   constructor(
     private sys: SystemService,

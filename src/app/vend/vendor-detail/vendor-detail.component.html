@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <div>
     <div class="component-title">
-        <span class="page-title">Vendor Edit</span>
+        <span class="page-title">Vendor Detail</span>
     </div>
     <table class="table table-sm" *ngIf="vendor">
         <tr>
@@ -41,7 +41,7 @@
             <td><input [(ngModel)]="vendor.email" type="text" size="50" disabled></td>
         </tr>
     </table>
-    <div>
+    <div *ngIf="isAdmin">
         <button (click)="edit()" class="btn btn-warning btn-sm">Edit</button> |
         <button (click)="verify()" class="btn btn-danger btn-sm">Delete</button>
         <span *ngIf="verifyDelete">

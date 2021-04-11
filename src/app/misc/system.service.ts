@@ -8,6 +8,7 @@ import { User } from '../user/user.class';
 export class SystemService {
 
   loggedInUser: User = null;
+  get isAdmin() { return this.loggedInUser != null && this.loggedInUser.isAdmin; }
 
   constructor(
     private router: Router

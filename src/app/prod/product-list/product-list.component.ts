@@ -12,6 +12,7 @@ export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
   searchCriteria: string = '';
+  get isAdmin(){ return this.sys.isAdmin };
   
   constructor(
     private sys: SystemService,

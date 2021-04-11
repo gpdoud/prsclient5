@@ -2,7 +2,7 @@
 <div>
     <div class="component-title">
         <span class="page-title">Vendor List</span> |
-        <span><a routerLink="/vend/create">Create</a></span> |
+        <span *ngIf="isAdmin"><a routerLink="/vend/create">Create</a> | </span> 
         <span><input [(ngModel)]="searchCriteria" type="text" class="search-box" placeholder="Search"></span>
     </div>
     <table class="table table-striped">
@@ -31,8 +31,8 @@
                 <td>{{vendor.zip}}</td>
                 <td>{{vendor.phoneNumber}}</td>
                 <td>
-                    <span><a routerLink="/vend/detail/{{vendor.id}}">Detail</a></span> |
-                    <span><a routerLink="/vend/edit/{{vendor.id}}">Edit</a></span>
+                    <span><a routerLink="/vend/detail/{{vendor.id}}">Detail</a></span>
+                    <span *ngIf="isAdmin"> | <a routerLink="/vend/edit/{{vendor.id}}">Edit</a></span>
                 </td>
             </tr>
         </tbody>

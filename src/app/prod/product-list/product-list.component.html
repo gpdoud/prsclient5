@@ -2,7 +2,7 @@
 <div>
     <div class="component-title">
         <span class="page-title">Product List</span> |
-        <span><a routerLink="/prod/create">Create</a></span> |
+        <span *ngIf="isAdmin"><a routerLink="/prod/create">Create</a> | </span>
         <span><input [(ngModel)]="searchCriteria" type="text" class="search-box" placeholder="Search"></span>
     </div>
     <table class="table table-striped">
@@ -27,8 +27,8 @@
                 <td>{{product.price | currency}}</td>
                 <td>{{product.unit}}</td>
                 <td>
-                    <span><a routerLink="/prod/detail/{{product.id}}">Detail</a></span> |
-                    <span><a routerLink="/prod/edit/{{product.id}}">Edit</a></span>
+                    <span><a routerLink="/prod/detail/{{product.id}}">Detail</a></span>
+                    <span *ngIf="isAdmin"> | <a routerLink="/prod/edit/{{product.id}}">Edit</a></span>
                 </td>
             </tr>
         </tbody>
