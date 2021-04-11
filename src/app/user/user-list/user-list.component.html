@@ -2,8 +2,8 @@
 <div>
     <div class="component-title">
         <span class="page-title">User List</span> |
-        <span><a routerLink="/user/create">Create</a></span> |
-        <span><input [(ngModel)]="searchCriteria" type="text" class="search-box" placeholder="Search"></span>
+        <span><a class="borderless" routerLink="/user/create">Create</a></span> |
+        <span><input [(ngModel)]="searchCriteria" type="text" class="search-box " placeholder="Search"></span>
     </div>
     <table class="table table-striped">
         <thead>
@@ -27,8 +27,8 @@
                 <td>{{user.isReviewer | bool}}</td>
                 <td>{{user.isAdmin | bool}}</td>
                 <td>
-                    <span><a routerLink="/user/detail/{{user.id}}">Detail</a></span> |
-                    <span><a routerLink="/user/edit/{{user.id}}">Edit</a></span>
+                    <span><a class="borderless" routerLink="/user/detail/{{user.id}}">Detail</a></span> |
+                    <span><a class="borderless" routerLink="/user/edit/{{user.id}}">Edit</a></span>
                 </td>
             </tr>
         </tbody>

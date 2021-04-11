@@ -12,3 +12,7 @@ input, select {
 .search-box {
     border: 0;
 }
+.borderless, button, a {
+    border: 0;
+    text-decoration: none !important;
+}

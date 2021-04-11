@@ -19,7 +19,7 @@
             <td>{{request.total | currency}}</td>
             <td>{{request.user.username}}</td>
             <td>
-                <button (click)="review()" type="button" class="btn btn-link">Review</button>
+                <button (click)="review()" class="btn btn-link ">Review</button>
             </td>
         </tr>
     </table>
@@ -28,7 +28,7 @@
         <span>Requestlines</span> |
         <button (click)="create(request.id)" class="btn btn-link">Create</button>
     </div>
-    <table class="table table-sm table-dividers" *ngIf="request">
+    <table class="table table-sm table-striped" *ngIf="request">
         <tr>
             <th>Id</th>
             <th>Product</th>
@@ -44,8 +44,8 @@
             <td>{{line.product.price | currency}}</td>
             <td>{{line.product.price * line.quantity | currency}}</td>
             <td>
-                <button (click)="edit(line.id)" class="btn btn-link">Edit</button> |
-                <button (click)="delete(line)" class="btn btn-link text-danger">Delete</button>
+                <button (click)="edit(line.id)" class="btn btn-link borderless">Edit</button> |
+                <button (click)="delete(line)" class="btn btn-link text-danger borderless">Delete</button>
             </td>
         </tr>
     </table>
