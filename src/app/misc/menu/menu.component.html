@@ -1,5 +1,5 @@
 <nav>
-    <div id="left">
+    <div id="left" *ngIf="user">
         <ul>
             <app-menuitem [menu]="menu" 
                 *ngFor="let menu of menus | reviewerFilter:isReviewer">

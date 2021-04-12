@@ -1,0 +1,45 @@
+<app-menu></app-menu>
+<div>
+    <div class="component-title">
+        <span class="page-title">Vendor Purchase Order</span>
+    </div>
+    <div class="container" *ngIf="poview">
+        
+        <div class="row">
+            <div><hr></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="fw-bold">Vendor</div>
+                <div>{{poview.vendor.name}}</div>
+                <div>{{poview.vendor.address}}</div>
+                <div>{{poview.vendor.city}}, {{poview.vendor.state}} {{poview.vendor.zip}}</div>
+            </div>
+            <div class="col">
+                <div class="fw-bold">User</div>
+                <div>{{user.firstname}} {{user.lastname}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div><hr></div>
+        </div>
+        <div class="row">
+            <div class="col fw-bold">Product</div>
+            <div class="col fw-bold">Part Number</div>
+            <div class="col fw-bold">Quantity</div>
+            <div class="col fw-bold">Price</div>
+        </div>
+        <div class="row" *ngFor="let line of poview.polines">
+            <div class="col">{{line.product.description}}</div>
+            <div class="col">{{line.product.partNbr}}</div>
+            <div class="col">{{line.quantity}}</div>
+            <div class="col">{{line.quantity * line.product.price | currency    }}</div>
+        </div>
+        <div class="row">
+            <div class="col">&nbsp;</div>
+            <div class="col">&nbsp;</div>
+            <div class="col">&nbsp;</div>
+            <div class="col overline">{{poview.total | currency}}</div>
+        </div>
+    </div>
+</div>

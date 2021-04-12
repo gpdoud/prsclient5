@@ -24,6 +24,7 @@ export { VendorListComponent } from './vend/vendor-list/vendor-list.component';
 export { VendorDetailComponent } from './vend/vendor-detail/vendor-detail.component';
 export { VendorCreateComponent } from './vend/vendor-create/vendor-create.component';
 export { VendorEditComponent } from './vend/vendor-edit/vendor-edit.component';
+export { VendorPoComponent } from './vend/vendor-po/vendor-po.component';
 
 export { E404Component } from './misc/e404/e404.component';
 export { MenuComponent } from './misc/menu/menu.component';

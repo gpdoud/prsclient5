@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { PoView } from './poview.class';
 import { Vendor } from './vendor.class';
 
 @Injectable({
@@ -13,6 +14,9 @@ export class VendorService {
     private http: HttpClient
   ) { }
   
+  getPo(vendId: number): Observable<PoView> {
+    return this.http.get(`${this.baseurl}/poview/${vendId}`) as Observable<PoView>;
+  }
   login(vendorname: string, password: string): Observable<Vendor> {
     return this.http.get(`${this.baseurl}/${vendorname}/${password}`) as Observable<Vendor>;
   }

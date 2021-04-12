@@ -32,6 +32,7 @@ const routes: Routes = [
   { path: 'vend/detail/:id', component: comp.VendorDetailComponent },
   { path: 'vend/create', component: comp.VendorCreateComponent },
   { path: 'vend/edit/:id', component: comp.VendorEditComponent },
+  { path: 'vend/poview/:id', component: comp.VendorPoComponent },
 
   { path: '**', component: comp.E404Component }
 ];

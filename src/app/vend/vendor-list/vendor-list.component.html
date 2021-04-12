@@ -33,6 +33,7 @@
                 <td>
                     <span><a routerLink="/vend/detail/{{vendor.id}}">Detail</a></span>
                     <span *ngIf="isAdmin"> | <a routerLink="/vend/edit/{{vendor.id}}">Edit</a></span>
+                    <span> | <a routerLink="/vend/poview/{{vendor.id}}">Po</a></span>
                 </td>
             </tr>
         </tbody>
