@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { SystemService } from 'src/app/misc/system.service';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
+// import { encrypt } from 'dsi-encrypt-password';
+import * as dsi from 'node_modules/dsi-encrypt-password';
 
 @Component({
   selector: 'app-user-login',
@@ -22,6 +24,7 @@ export class UserLoginComponent implements OnInit {
 
   login(): void {
     this.message = '';
+    this.user.password = dsi.encrypt(this.user.password);
     console.debug("B4:", this.user);
     this.usr.login(this.user.username, this.user.password).subscribe(
       res => { 

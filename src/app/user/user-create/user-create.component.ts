@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SystemService } from 'src/app/misc/system.service';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
+import * as dsi from 'node_modules/dsi-encrypt-password';
 
 @Component({
   selector: 'app-user-create',
@@ -20,6 +21,7 @@ export class UserCreateComponent implements OnInit {
   ) { }
 
   save(): void {
+    this.user.password = dsi.encrypt(this.user.password);
     console.debug("B4:", this.user);
     this.usr.create(this.user).subscribe(
       res => { console.debug(res); this.router.navigateByUrl("/user/list"); },
