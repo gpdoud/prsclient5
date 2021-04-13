@@ -1,17 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { SystemService } from '../misc/system.service';
 import { User } from './user.class';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  baseurl: string = "http://localhost:5000/api/users";
+  
+  get baseurl() { return `${this.sys.baseurl}/users`; }
 
   constructor(
+    private sys: SystemService,
     private http: HttpClient
-  ) { }
+  ) { 
+  }
   
   login(username: string, password: string): Observable<User> {
     return this.http.get(`${this.baseurl}/${username}/${password}`) as Observable<User>;

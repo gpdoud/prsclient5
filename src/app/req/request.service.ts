@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { SystemService } from '../misc/system.service';
 import { Request } from './request.class';
 
 @Injectable({
@@ -8,11 +9,13 @@ import { Request } from './request.class';
 })
 export class RequestService {
 
-  baseurl: string = "http://localhost:5000/api/requests";
+  get baseurl() { return `${this.sys.baseurl}/requests`; }
 
   constructor(
+    private sys: SystemService,
     private http: HttpClient
-  ) { }
+  ) { 
+  }
   
   list(): Observable<Request[]> {
     return this.http.get(`${this.baseurl}`) as Observable<Request[]>;

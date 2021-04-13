@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { SystemService } from '../misc/system.service';
 import { PoView } from './poview.class';
 import { Vendor } from './vendor.class';
 
@@ -8,11 +9,13 @@ import { Vendor } from './vendor.class';
   providedIn: 'root'
 })
 export class VendorService {
-  baseurl: string = "http://localhost:5000/api/vendors";
+  get baseurl() { return `${this.sys.baseurl}/vendors`; }
 
   constructor(
+    private sys: SystemService,
     private http: HttpClient
-  ) { }
+  ) { 
+  }
   
   getPo(vendId: number): Observable<PoView> {
     return this.http.get(`${this.baseurl}/poview/${vendId}`) as Observable<PoView>;
