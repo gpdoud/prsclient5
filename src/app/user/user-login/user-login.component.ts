@@ -42,9 +42,9 @@ export class UserLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sys.warn("Login user fixed on sa");
-    this.user.username = "sa";
-    this.user.password = "sa";
+    // this.sys.warn("Login user fixed on sa");
+    // this.user.username = "sa";
+    // this.user.password = "sa";
   }
 
 }
