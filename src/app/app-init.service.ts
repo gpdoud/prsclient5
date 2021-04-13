@@ -16,7 +16,6 @@ export class AppInitService {
   getSettings(): Promise<Config | void> {
     return this.http.get("assets/config.json").toPromise().then(
       (config: Config) => {
-        console.debug("config.json:", config);
         this.config = config;
       }
     );

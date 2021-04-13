@@ -37,7 +37,9 @@ export class SystemService {
   constructor(
     private appinit: AppInitService,
     private router: Router
-  ) { }
+  ) { 
+    this.debug(this.appinit.config);
+  }
 
   chkLogin(): void {
     if(this.loggedInUser == null) {
