@@ -34,22 +34,22 @@ export class RequestLinesComponent implements OnInit {
 
   delete(requestline: Requestline): void {
     this.reql.remove(requestline).subscribe(
-      res => { console.debug(res); this.refresh(); },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.refresh(); },
+      err => { this.sys.error(err); }
     );
   }
 
   review(): void {
     this.req.setReview(this.request).subscribe(
-      res => { console.debug(res); this.refresh(); }
+      res => { this.sys.debug(res); this.refresh(); }
     );
   }
 
   refresh(): void {
     let id = this.route.snapshot.params.id;
     this.req.get(+id).subscribe(
-      res => { console.debug(res); this.request = res; },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.request = res; },
+      err => { this.sys.error(err); }
     );    
   }
 

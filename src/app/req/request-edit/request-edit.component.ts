@@ -23,8 +23,8 @@ export class RequestEditComponent implements OnInit {
   save(): void {
     console.debug("B4:", this.request);
     this.req.change(this.request).subscribe(
-      res => { console.debug(res); this.router.navigateByUrl("/req/list"); },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.router.navigateByUrl("/req/list"); },
+      err => { this.sys.error(err); }
     );
   }
 
@@ -32,8 +32,8 @@ export class RequestEditComponent implements OnInit {
     this.sys.chkLogin();
     let id = this.route.snapshot.params.id;
     this.req.get(+id).subscribe(
-      res => { console.debug(res); this.request = res; },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.request = res; },
+      err => { this.sys.error(err); }
     );
   }
 

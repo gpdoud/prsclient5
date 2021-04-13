@@ -27,15 +27,15 @@ export class RequestlineCreateComponent implements OnInit {
   save(): void {
     this.requestline.productId = +this.requestline.productId;
     this.reql.create(this.requestline).subscribe(
-      res => { console.debug(res); this.router.navigateByUrl(`/req/lines/${this.requestline.requestId}`) },
-      err => { console.error(err); }      
+      res => { this.sys.debug(res); this.router.navigateByUrl(`/req/lines/${this.requestline.requestId}`) },
+      err => { this.sys.error(err); }      
     );
   }
 
   ngOnInit(): void {
     this.prd.list().subscribe(
-      res => { console.debug(res); this.products = res; },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.products = res; },
+      err => { this.sys.error(err); }
     );
     this.requestline.requestId = +this.route.snapshot.params.rid;
   }

@@ -21,10 +21,10 @@ export class VendorEditComponent implements OnInit {
   ) { }
 
   save(): void {
-    console.debug("B4:", this.vendor);
+    this.sys.debug("B4:", this.vendor);
     this.vnd.change(this.vendor).subscribe(
-      res => { console.debug(res); this.router.navigateByUrl("/vend/list"); },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.router.navigateByUrl("/vend/list"); },
+      err => { this.sys.error(err); }
     );
   }
 
@@ -32,8 +32,8 @@ export class VendorEditComponent implements OnInit {
     this.sys.chkLogin();
     let id = this.route.snapshot.params.id;
     this.vnd.get(+id).subscribe(
-      res => { console.debug(res); this.vendor = res; },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.vendor = res; },
+      err => { this.sys.error(err); }
     );
   }
 

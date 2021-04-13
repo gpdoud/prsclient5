@@ -27,7 +27,7 @@ export class RequestReviewItemComponent implements OnInit {
   approve(): void {
     this.request.rejectionReason = '';
     this.req.setApproved(this.request).subscribe(
-      res => { console.debug(res); this.refresh(); }
+      res => { this.sys.debug(res); this.refresh(); }
     );
   }
 
@@ -37,15 +37,16 @@ export class RequestReviewItemComponent implements OnInit {
 
   reject(): void {
     this.req.setRejected(this.request).subscribe(
-      res => { console.debug(res); this.refresh(); this.verify(); }
+      res => { this.sys.debug(res); this.refresh(); this.verify(); },
+      err => { this.sys.error(err); }
     );
   }
 
   refresh(): void {
     let id = this.route.snapshot.params.id;
     this.req.get(+id).subscribe(
-      res => { console.debug(res); this.request = res; },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.request = res; },
+      err => { this.sys.error(err); }
     );    
   }
 

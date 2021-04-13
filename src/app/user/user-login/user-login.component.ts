@@ -25,15 +25,15 @@ export class UserLoginComponent implements OnInit {
   login(): void {
     this.message = '';
     this.user.password = dsi.encrypt(this.user.password);
-    console.debug("B4:", this.user);
+    this.sys.debug("B4:", this.user);
     this.usr.login(this.user.username, this.user.password).subscribe(
       res => { 
-        console.debug("User:", res); 
+        this.sys.debug("User:", res); 
         this.sys.loggedInUser = res;
         this.router.navigateByUrl("/req/list"); 
       },
       err => { 
-        console.debug(err); 
+        this.sys.error(err); 
         if(err.status == 404) {
           this.message = "Username/Password is not valid.";
         }
@@ -42,7 +42,7 @@ export class UserLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.warn("Login user fixed on sa");
+    this.sys.warn("Login user fixed on sa");
     this.user.username = "sa";
     this.user.password = "sa";
   }

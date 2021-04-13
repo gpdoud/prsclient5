@@ -26,16 +26,16 @@ export class ProductCreateComponent implements OnInit {
   save(): void {
     console.debug("B4:", this.product);
     this.prd.create(this.product).subscribe(
-      res => { console.debug(res); this.router.navigateByUrl("/prod/list"); },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.router.navigateByUrl("/prod/list"); },
+      err => { this.sys.error(err); }
       );
     }
     
   ngOnInit(): void {
     this.sys.chkLogin();
     this.vnd.list().subscribe(
-      res => { console.debug(res); this.vendors = res; },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.vendors = res; },
+      err => { this.sys.error(err); }
     );
   }
 

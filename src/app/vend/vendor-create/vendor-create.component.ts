@@ -20,10 +20,10 @@ export class VendorCreateComponent implements OnInit {
   ) { }
 
   save(): void {
-    console.debug("B4:", this.vendor);
+    this.sys.debug("B4:", this.vendor);
     this.vnd.create(this.vendor).subscribe(
-      res => { console.debug("Created successfully!"); this.router.navigateByUrl("/vend/list"); },
-      err => { console.error(err); }
+      res => { this.sys.debug("Created successfully!"); this.router.navigateByUrl("/vend/list"); },
+      err => { this.sys.error(err); }
     );
   }
 

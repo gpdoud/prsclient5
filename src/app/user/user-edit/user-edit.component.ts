@@ -23,10 +23,10 @@ export class UserEditComponent implements OnInit {
 
   save(): void {
     this.user.password = dsi.encrypt(this.user.password);
-    console.debug("B4:", this.user);
+    this.sys.debug("B4:", this.user);
     this.usr.change(this.user).subscribe(
-      res => { console.debug(res); this.router.navigateByUrl("/user/list"); },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.router.navigateByUrl("/user/list"); },
+      err => { this.sys.error(err); }
     );
   }
 
@@ -34,8 +34,8 @@ export class UserEditComponent implements OnInit {
     this.sys.chkLogin();
     let id = this.route.snapshot.params.id;
     this.usr.get(+id).subscribe(
-      res => { console.debug(res); this.user = res; },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.user = res; },
+      err => { this.sys.error(err); }
     );
   }
 

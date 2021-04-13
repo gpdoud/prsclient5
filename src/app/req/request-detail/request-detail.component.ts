@@ -32,8 +32,8 @@ export class RequestDetailComponent implements OnInit {
   delete(): void {
     console.debug("B4:", this.request);
     this.req.remove(this.request).subscribe(
-      res => { console.debug("Delete Successful!"); this.router.navigateByUrl("/req/list"); },
-      err => { console.error(err); }
+      res => { this.sys.debug("Delete Successful!"); this.router.navigateByUrl("/req/list"); },
+      err => { this.sys.error(err); }
     );
   }
 
@@ -41,8 +41,8 @@ export class RequestDetailComponent implements OnInit {
     this.sys.chkLogin();
     let id = this.route.snapshot.params.id;
     this.req.get(+id).subscribe(
-      res => { console.debug(res); this.request = res; },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.request = res; },
+      err => { this.sys.error(err); }
     );
   }
 

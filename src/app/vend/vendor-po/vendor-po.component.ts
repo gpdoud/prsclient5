@@ -28,11 +28,11 @@ export class VendorPoComponent implements OnInit {
     this.user = this.sys.loggedInUser;
     this.vnd.getPo(1).subscribe(
       res => {
-        console.debug(res);
+        this.sys.debug(res);
         this.poview = res;
       },
       err => {
-        console.error(err);
+        this.sys.error(err);
       }
     );
   }

@@ -22,8 +22,8 @@ export class RequestCreateComponent implements OnInit {
   save(): void {
     console.debug("B4:", this.request);
     this.req.create(this.request).subscribe(
-      res => { console.debug(res); this.router.navigateByUrl("/req/list"); },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.router.navigateByUrl("/req/list"); },
+      err => { this.sys.error(err); }
     );
   }
 

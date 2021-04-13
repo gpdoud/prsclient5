@@ -33,8 +33,8 @@ export class ProductDetailComponent implements OnInit {
   delete(): void {
     console.debug("B4:", this.product);
     this.usr.remove(this.product).subscribe(
-      res => { console.debug("Delete Successful!"); this.router.navigateByUrl("/prod/list"); },
-      err => { console.error(err); }
+      res => { this.sys.debug("Delete Successful!"); this.router.navigateByUrl("/prod/list"); },
+      err => { this.sys.error(err); }
     );
   }
 
@@ -46,8 +46,8 @@ export class ProductDetailComponent implements OnInit {
     this.sys.chkLogin();
     let id = this.route.snapshot.params.id;
     this.usr.get(+id).subscribe(
-      res => { console.debug(res); this.injectVendorName(res); this.product = res; },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.injectVendorName(res); this.product = res; },
+      err => { this.sys.error(err); }
     );
   }
 

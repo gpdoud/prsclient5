@@ -21,8 +21,8 @@ export class RequestReviewListComponent implements OnInit {
   ngOnInit(): void {
     this.sys.chkLogin();
     this.usr.getReviewed(this.sys.loggedInUser.id).subscribe(
-      res => { console.debug(res); this.requests = res; },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.requests = res; },
+      err => { this.sys.error(err); }
     );
   }
 

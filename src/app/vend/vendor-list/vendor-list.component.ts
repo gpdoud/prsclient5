@@ -22,8 +22,8 @@ export class VendorListComponent implements OnInit {
   ngOnInit(): void {
     this.sys.chkLogin();
     this.usr.list().subscribe(
-      res => { console.debug(res); this.vendors = res; },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.vendors = res; },
+      err => { this.sys.error(err); }
     );
   }
 

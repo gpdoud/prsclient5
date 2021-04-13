@@ -24,8 +24,8 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.sys.chkLogin();
     this.usr.list().subscribe(
-      res => { console.debug(res); this.products = res; },
-      err => { console.error(err); }
+      res => { this.sys.debug(res); this.products = res; },
+      err => { this.sys.error(err); }
     );
   }
 
