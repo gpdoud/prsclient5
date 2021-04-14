@@ -30,9 +30,9 @@ export class UserService {
     return this.http.post(`${this.baseurl}`, user) as Observable<User>;
   }
   change(user: User): Observable<any> {
-    return this.http.put(`${this.baseurl}/${user.id}`, user) as Observable<any>;
+    return this.http.post(`${this.baseurl}/update/${user.id}`, user) as Observable<any>;
   }
   remove(user: User): Observable<User> {
-    return this.http.delete(`${this.baseurl}/${user.id}`) as Observable<User>;
+    return this.http.post(`${this.baseurl}/delete/${user.id}`, null) as Observable<User>;
   }
 }

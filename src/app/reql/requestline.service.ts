@@ -27,9 +27,9 @@ export class RequestlineService {
     return this.http.post(`${this.baseurl}`, requestline) as Observable<Requestline>;
   }
   change(requestline: Requestline): Observable<any> {
-    return this.http.put(`${this.baseurl}/${requestline.id}`, requestline) as Observable<any>;
+    return this.http.post(`${this.baseurl}/update/${requestline.id}`, requestline) as Observable<any>;
   }
   remove(requestline: Requestline): Observable<Requestline> {
-    return this.http.delete(`${this.baseurl}/${requestline.id}`) as Observable<Requestline>;
+    return this.http.post(`${this.baseurl}/delete/${requestline.id}`, null) as Observable<Requestline>;
   }
 }
